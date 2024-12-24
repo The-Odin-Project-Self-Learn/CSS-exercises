@@ -1,0 +1,18 @@
+.number1,
+.number2 {
+    background-color: pink;
+}
+
+.number2 {
+    font-size: 20px;
+}
+
+#id2 {
+    color: blue;
+    font-size: 30px;
+}
+
+#id4 {
+    background-color: lime;
+    font-weight: 700;
+}
