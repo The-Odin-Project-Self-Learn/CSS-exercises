@@ -7,16 +7,31 @@
     <title>Fix the Cascade</title>
     <link rel="stylesheet" href="style.css">
   </head>
+
   <body>
     <p class="para">I'm just a paragraph with extra bold text!</p>
+    <!--Because both para and small para classes are applied, due to conflict in the font size selector,
+    along with the fact that both para and small para are single class selectors, neither is more specific
+    than the other, so the position in the stylesheet acts as the tie-breaker-->
     <p class="para small-para">I'm a smaller paragraph, also with extra bold text!</p>
 
+    <!--Similarly, both "confirm" and "button" class selectors will apply to this button, but due to
+    conflicts in color and background, and the fact that neither is more specific, the position of the 
+    declaration blocks in the stylesheet will break the color and background ties-->
     <button id="confirm-button" class="button confirm">Confirm</button>
+    <!--Because there is no "cancel" class, only the button class selector will apply to this button-->
     <button id="cancel-button" class="button cancel">Cancel</button>
 
     <div class="text">I'm a div with thin text!</div>
     <div class="text">I'm a div with thin text and a child div!
+      <!--Because the "text" class selector was also chained with a div type selector, it had higher
+      specificity and thus the "child" class selectors' font-weight and font-size attributes were being
+      ignored. We removed the div type selector and changed the position of the two declaration blocks
+      to ensure that the "chid" class selectors' attributes take precedence due to its position in the
+      stylesheet, since now both declaration blocks have one class selector, removing specificity between
+      the two-->
       <div class="text child">I'm a smaller child div with extra bold text.</div>
     </div>
   </body>
+
 </html>
